@@ -12,6 +12,7 @@ function App() {
     if (myRef.current) {
       myRef.current.style.color = "red"
     }
+    console.error("My caught error")
   }, [])
 
   return (
