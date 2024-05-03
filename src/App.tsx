@@ -1,7 +1,9 @@
 // ref without forwardRef example
 import React, { useEffect, useRef } from "react"
 import "./App.css"
+import ContextElement from "./components/ContextElement"
 import RefElement from "./components/RefElement"
+import ThemeProvider from "./contexts/ThemeContext"
 
 function App() {
   const myRef = useRef<HTMLDivElement>(null)
@@ -12,7 +14,14 @@ function App() {
     }
   }, [])
 
-  return <RefElement ref={myRef}>Hello from React {React.version}</RefElement>
+  return (
+    <div className="flex flex-col gap-y-10">
+      <RefElement ref={myRef}>Hello from React {React.version}</RefElement>
+      <ThemeProvider>
+        <ContextElement />
+      </ThemeProvider>
+    </div>
+  )
 }
 
 export default App
